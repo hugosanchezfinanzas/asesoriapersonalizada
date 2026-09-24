@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hugo Sánchez | Coaching Financiero Privado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-main: #323a39;       /* Gris oscuro muy sutil y elegante */
+            --bg-card: #252A29;       /* Gris ligeramente más claro para tarjetas */
+            --bg-lighter: #2D3332;
+            --accent: #01c999;        /* Verde menta/esmeralda */
+            --accent-hover: #01a880;
+            --text-main: #FFFFFF;
+            --text-muted: #A0AAB2;    /* Gris azulado claro para textos secundarios */
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-muted);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        img, video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .text-accent {
+            color: var(--accent);
+        }
+
+        /* ================= BUTTONS ================= */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: #000;
+            padding: 14px 35px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            border: 2px solid var(--accent);
+            box-shadow: 0 4px 20px rgba(1, 201, 153, 0.2);
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--accent);
+            box-shadow: none;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--accent);
+            color: #000;
+        }
+
+        /* ================= HEADER ================= */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            background-color: rgba(26, 30, 29, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .logo i {
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* ================= HERO SECTION ================= */
+        .hero {
+            padding: 150px 0 100px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            border: 1px solid rgba(1, 201, 153, 0.3);
+            color: var(--accent);
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            background: rgba(1, 201, 153, 0.05);
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem; /* Tamaño más sutil y elegante */
+            line-height: 1.2;
+            margin-bottom: 25px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-text p.lead {
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            font-weight: 300;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+        
+        .hero-image img {
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        
+        /* ================= EXPERIENCIA / MARCAS ================= */
+        .trust-bar {
+            background-color: #ffffff;
+            padding: 40px 0;
+            border-top: 2px solid var(--accent);
+            border-bottom: 2px solid var(--accent);
+        }
+        
+        .trust-content {
+            text-align: center;
+        }
+
+        .trust-content img {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 0;
+        }
+
+        /* ================= BENEFICIOS ================= */
+        .benefits {
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            max-width: 600px;
+            margin: 0 auto 60px;
+            font-size: 1.05rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background: var(--bg-card);
+            padding: 40px 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(1, 201, 153, 0.3);
+            background: var(--bg-lighter);
+        }
+
+        .benefit-icon {
+            font-size: 35px;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .benefit-card p {
+            font-size: 0.95rem;
+        }
+
+        /* ================= ABOUT ================= */
+        .about {
+            padding: 100px 0;
+            background-color: var(--bg-card);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 4fr 6fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image img {
+            box-shadow: 15px 15px 0px rgba(1, 201, 153, 0.2);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .cert-list {
+            list-style: none;
+            margin-top: 30px;
+            background: var(--bg-main);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .cert-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        .cert-list li i {
+            color: var(--accent);
+        }
+
+        /* ================= TESTIMONIOS Y COMUNIDAD ================= */
+        .testimonials {
+            padding: 120px 0;
+        }
+        
+        .media-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+            align-items: center;
+        }
+        
+        .video-container {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid rgba(1, 201, 153, 0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background: #000;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .gallery-grid img {
+            object-fit: cover;
+            height: 100%;
+            border: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+        
+        .gallery-grid img:hover {
+            opacity: 1;
+        }
+        
+        .gallery-grid .img-large {
+            grid-column: span 2;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            padding: 40px 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .client-info h4 {
+            color: var(--accent);
+            font-size: 1rem;
+        }
+        
+        .client-info span {
+            font-size: 0.8rem;
+        }
+
+        /* ================= PRICING ================= */
+        .pricing {
+            padding: 100px 0 140px;
+            background-color: var(--bg-card);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .pricing-card {
+            background: var(--bg-main);
+            padding: 50px 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            position: relative;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 2.8rem;
+            color: var(--text-main);
+            margin-bottom: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--accent);
+        }
+
+        .pricing-features {
+            text-align: left;
+            margin-bottom: 40px;
+            min-height: 120px;
+        }
+
+        .pricing-features p {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        /* --- TARJETA RECOMENDADA (RESALTE MENTA) --- */
+        .pricing-card.recommended {
+            border: 2px solid var(--accent);
+            background: linear-gradient(180deg, rgba(1,201,153,0.08) 0%, rgba(26,30,29,1) 100%);
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(1, 201, 153, 0.15);
+            z-index: 10;
+        }
+
+        .badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--accent);
+            color: #000;
+            padding: 6px 25px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(1,201,153,0.3);
+        }
+
+        .pricing-footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.95rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .pricing-footer i {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        /* ================= CTA FINAL & FOOTER ================= */
+        .cta-final {
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .cta-final h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #121514;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* ================= MOBILE ================= */
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            cursor: pointer;
+        }
+
+        @media (max-width: 992px) {
+            .hero-content, .about-grid, .media-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-text h1 { font-size: 2.3rem; }
+            .pricing-card.recommended { transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Simplificado para el ejemplo, requiere JS para toggle */
+            }
+            .menu-toggle { display: block; }
+            .benefits-grid, .testimonials-grid, .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-chart-line"></i> Hugo Sánchez
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#metodo">El Método</a></li>
+                <li><a href="#sobre-mi">Conóceme</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#inversion">Inversión</a></li>
+            </ul>
+            <a href="https://wa.link/yl6qlh" target="_blank" class="btn" style="padding: 10px 20px; font-size: 0.85rem;">Agendar Sesión</a>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="hero-tag">Coaching Privado</span>
+                <h1>Del estrés financiero a la <span class="text-accent">paz mental y financiera.</span></h1>
+                <p class="lead">¿Sientes que trabajas duro pero tu dinero desaparece antes de fin de mes? El estrés no se resuelve ganando más, sino cambiando la estrategia y las creencias que te impiden crecer.</p>
+                <p style="margin-bottom: 30px;">No necesitas trabajar el doble; necesitas un mapa claro.</p>
+                <a href="https://wa.link/yl6qlh" target="_blank" class="btn">Toma el control hoy</a>
+            </div>
+            <div class="hero-image">
+                <img src="Conferencia.jpeg" alt="Hugo Sánchez impartiendo conferencia">
+            </div>
+        </div>
+    </section>
+    
+    <section class="trust-bar">
+        <div class="container trust-content">
+            <img src="cursos y conferencias hugo.png" alt="Conferencias y cursos impartidos en universidades y empresas">
+        </div>
+    </section>
+
+    <section id="metodo" class="benefits">
+        <div class="container">
+            <h2 class="section-title">Tu plan financiero, a tu medida</h2>
+            <p class="section-subtitle">Diagnosticamos tu situación actual, encontramos fugas de dinero y elevamos tu IQ financiero con un plan de acción real y aplicable.</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fa-solid fa-eye benefit-icon"></i>
+                    <h3>Claridad Absoluta</h3>
+                    <p>Conocerás exactamente dónde estás parado y hacia dónde va cada peso de tus ingresos.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fa-solid fa-arrow-trend-up benefit-icon"></i>
+                    <h3>Estrategia Cero Deudas</h3>
+                    <p>Aplicaremos métodos probados (como bola de nieve) para liquidar compromisos sin sacrificar tu tranquilidad.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fa-solid fa-brain benefit-icon"></i>
+                    <h3>Reprogramación</h3>
+                    <p>Desbloquearemos los hábitos que frenan tu crecimiento utilizando técnicas de Programación Neurolingüística.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre-mi" class="about">
+        <div class="container about-grid">
+            <div class="about-image">
+                <img src="Hugo perfil curso.png" alt="Hugo Sánchez Coach">
+            </div>
+            <div class="about-content">
+                <h2 style="font-size: 2rem; margin-bottom: 20px;">Conoce a Hugo Sánchez</h2>
+                <p>Con más de 10 años de experiencia en el sector financiero, he sido testigo de cómo nuestras decisiones económicas pueden construir una vida próspera o llevarnos a la crisis.</p>
+                <p>Yo mismo enfrenté el sobreendeudamiento y la quiebra, pero tocar fondo me enseñó que la educación financiera era la clave. Al transformar mis creencias y hábitos, logré sanar mi economía.</p>
+                <p>Hoy utilizo esa experiencia para ayudar a personas sobreendeudadas a salir de deudas, administrar su dinero, generar nuevas fuentes de ingresos e invertir con éxito.</p>
+                
+                <ul class="cert-list">
+                    <li><i class="fa-solid fa-certificate"></i> Coach Life Certificado</li>
+                    <li><i class="fa-solid fa-certificate"></i> Coach Financiero Certificado</li>
+                    <li><i class="fa-solid fa-certificate"></i> Certificación como Coach en PNL</li>
+                    <li><i class="fa-solid fa-certificate"></i> Certificación en Neuroempoderamiento del Ser</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonios" class="testimonials">
+        <div class="container">
+            <h2 class="section-title text-center" style="text-align: center;">Transformación Real</h2>
+            <p class="section-subtitle text-center" style="text-align: center;">Escucha y lee la experiencia de quienes ya tomaron el control de su economía.</p>
+            
+            <div class="media-grid">
+                <div class="video-container">
+                    <video controls>
+                        <source src="testimonios curso finanzas.mp4" type="video/mp4">
+                        Tu navegador no soporta reproducción de video.
+                    </video>
+                </div>
+                <div class="gallery-grid">
+                    <img src="curso 3.jpeg" alt="Hugo Sánchez enseñando" class="img-large">
+                    <img src="Curso 1.jpeg" alt="Grupo graduado del curso">
+                    <img src="Curso 2.jpeg" alt="Comunidad de alumnos">
+                </div>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"Aprendí que lo primero que tengo que cambiar es la mentalidad con respecto al dinero, aprender a administrar e invertir. La Educación Financiera no se enseña en las escuelas."</p>
+                    <div class="client-info">
+                        <h4>JOSE LUIS ROSALES</h4>
+                        <span>Abogado</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Identifiqué mi forma de ver el dinero y cómo administrar los ingresos para hacer que rindan. Este curso me impulsó a concretar un proyecto para tener independencia económica."</p>
+                    <div class="client-info">
+                        <h4>ÁNGELES GÓMEZ</h4>
+                        <span>Emprendedora</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Aprendí a reconocer mis miedos y establecer metas. Me encantó la combinación de coach financiero con coach de vida... nos muestra qué sigue para llegar a la libertad financiera."</p>
+                    <div class="client-info">
+                        <h4>MÓNICA MACÍAS</h4>
+                        <span>Contadora</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="inversion" class="pricing">
+        <div class="container">
+            <h2 class="section-title text-center" style="text-align: center;">Elige cómo quieres empezar</h2>
+            <p class="section-subtitle text-center" style="text-align: center;">Diseña tu propio mapa financiero. Tu lugar queda reservado al realizar el pago.</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Sesión Diagnóstico</h3>
+                    <div class="price">$550 <span>MXN</span></div>
+                    <div class="pricing-features">
+                        <p><i class="fa-solid fa-check text-accent"></i> 1 Sesión privada de 60 min.</p>
+                        <p><i class="fa-solid fa-check text-accent"></i> Diagnóstico de tu situación actual.</p>
+                        <p><i class="fa-solid fa-check text-accent"></i> Identificación de áreas de mejora.</p>
+                    </div>
+                    <a href="https://pago.clip.mx/v3/68c83836-0c14-469f-876f-a32338da9d30" target="_blank" class="btn btn-outline" style="width: 100%;">Reservar sesión</a>
+                </div>
+                
+                <div class="pricing-card recommended">
+                    <div class="badge">Recomendado</div>
+                    <h3>Proceso Claridad</h3>
+                    <div class="price text-accent" style="color: var(--accent);">$3,650 <span style="color: var(--text-main);">MXN</span></div>
+                    <div class="pricing-features">
+                        <p><i class="fa-solid fa-check text-accent"></i> 4 Sesiones privadas.</p>
+                        <p><i class="fa-solid fa-check text-accent"></i> Establecimiento de un objetivo puntual.</p>
+                        <p><i class="fa-solid fa-check text-accent"></i> Seguimiento y apoyo por WhatsApp.</p>
+                    </div>
+                    <a href="https://pago.clip.mx/v3/20fd6ce6-0e7f-4ce1-a920-8d4d1b8ec73a" target="_blank" class="btn" style="width: 100%;">Avanzar con claridad</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Proceso Expansión</h3>
+                    <div class="price">$9,450 <span>MXN</span></div>
+                    <div class="pricing-features">
+                        <p><i class="fa-solid fa-check text-accent"></i> 10 Sesiones privadas.</p>
+                        <p><i class="fa-solid fa-check text-accent"></i> Seguimiento continuo.</p>
+                        <p><i class="fa-solid fa-check text-accent"></i> Apoyo por WhatsApp y revisión de objetivos.</p>
+                    </div>
+                    <a href="https://pago.clip.mx/v3/2b6faece-e509-4b45-983c-957b6ce452f2" target="_blank" class="btn btn-outline" style="width: 100%;">Siguiente etapa</a>
+                </div>
+            </div>
+            
+            <div class="pricing-footer">
+                <i class="fa-regular fa-credit-card"></i>
+                <p>Pago seguro por transferencia o tarjeta. Posibilidad de pagar a <strong>3 y 6 meses con tarjeta</strong>.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-final">
+        <div class="container">
+            <h2>Da el siguiente paso</h2>
+            <p style="max-width: 600px; margin: 0 auto 30px; font-size: 1.1rem; color: var(--text-muted);">
+                Aquí empieza tu nueva vida de paz mental y financiera.
+            </p>
+            <a href="https://wa.link/yl6qlh" target="_blank" class="btn" style="font-size: 1.1rem; padding: 16px 40px;"><i class="fab fa-whatsapp"></i> Estoy listo para comenzar</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Hugo Sánchez. Coach Financiero.
